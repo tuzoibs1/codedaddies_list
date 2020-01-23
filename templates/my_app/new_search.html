@@ -1,25 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- Allows base to access filter and display cards for resulting data -->
 
-{% block content %}
-    <h2 style="text-align: center">{{ search | title }}</h2>
+{%block content%}
 
-    <div class="row">
-        {% for post in final_postings %}
-            <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="{{ post.1 }}"><img src="{{ post.3 }}" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>{{ post.0 }}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ post.1 }}">View listing: Price {{ post.2 }}</a>
-                    </div>
+<h2 style="text-align: center">{{ search | title }}</h2>
+
+<div class="row">
+    {% for post in final_postings %} <!--for loop for the posts-->
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <a href="{{post.1}}"><img src="{{ post.3}}" alt=""></a>
                 </div>
+                <div class="card-content">
+                  <p>{{ post.0 }}</p>
+                </div>
+                <div class="card-action">
+                <a href="{{post.1}}">View listing: Price {{ post.2 }}</a>
             </div>
-        {% endfor %}
+        </div>
     </div>
-{% endblock content %}
+    {% endfor %}
+</div>
 
-
+{% endblock content%}
+© 2020 GitHub, Inc.
